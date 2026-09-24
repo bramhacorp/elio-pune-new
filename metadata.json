@@ -1,0 +1,6 @@
+{
+  "name": "ELIO – Luxury Clothing & Custom Jewellery Atelier",
+  "description": "A curated world of clothing and custom jewellery for the modern woman. Experience timeless style, fine fabrics, and bespoke craftsmanship in Pune, India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

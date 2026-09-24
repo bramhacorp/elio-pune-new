@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { MapPin, Bookmark, Menu, X, Calendar, Sparkles, Download } from 'lucide-react';
+import { MapPin, Bookmark, Menu, X, Calendar, Sparkles } from 'lucide-react';
 import { ElioLogo } from './ElioLogo';
 
 interface NavbarProps {
   onOpenStudioModal: () => void;
   onOpenAppointmentModal: () => void;
   onOpenLookbookDrawer: () => void;
-  onOpenExportModal: () => void;
   lookbookCount: number;
 }
 
@@ -14,7 +13,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenStudioModal,
   onOpenAppointmentModal,
   onOpenLookbookDrawer,
-  onOpenExportModal,
   lookbookCount,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -117,16 +115,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Export & Deploy to GitHub / Vercel */}
-            <button
-              onClick={onOpenExportModal}
-              className="flex items-center gap-1.5 bg-[#161513] text-white hover:bg-[#332F2B] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] font-medium transition-all duration-300 cursor-pointer shadow-xs"
-              title="Download Codebase / Push to GitHub & Vercel"
-            >
-              <Download className="w-3 h-3 text-[#D4AF37]" />
-              <span className="hidden sm:inline">Export Code</span>
-            </button>
-
             {/* Book Appointment CTA */}
             <button
               onClick={onOpenAppointmentModal}
@@ -186,16 +174,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="flex flex-col gap-3 pt-6 border-t border-[#E8DFD5]">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenExportModal();
-              }}
-              className="w-full bg-[#161513] text-[#FAF7F2] py-3 text-xs uppercase tracking-[0.2em] font-medium flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5 text-[#D4AF37]" />
-              Export Codebase (.ZIP / GitHub)
-            </button>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

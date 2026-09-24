@@ -15,7 +15,6 @@ import { CollectionModal } from './components/CollectionModal';
 import { AppointmentModal } from './components/AppointmentModal';
 import { StudioModal } from './components/StudioModal';
 import { LookbookDrawer } from './components/LookbookDrawer';
-import { ExportModal } from './components/ExportModal';
 import { ProductItem } from './data/products';
 import { Sparkles, X } from 'lucide-react';
 
@@ -27,7 +26,6 @@ export default function App() {
   const [appointmentService, setAppointmentService] = useState('Private Bridal Styling & Trousseau');
   const [isStudioOpen, setIsStudioOpen] = useState(false);
   const [isLookbookOpen, setIsLookbookOpen] = useState(false);
-  const [isExportOpen, setIsExportOpen] = useState(false);
 
   // Lookbook persistence in localStorage
   const [lookbook, setLookbook] = useState<ProductItem[]>(() => {
@@ -105,7 +103,6 @@ export default function App() {
         onOpenStudioModal={() => setIsStudioOpen(true)}
         onOpenAppointmentModal={() => handleOpenAppointmentModal()}
         onOpenLookbookDrawer={() => setIsLookbookOpen(true)}
-        onOpenExportModal={() => setIsExportOpen(true)}
         lookbookCount={lookbook.length}
       />
 
@@ -136,10 +133,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer
-        onOpenStudioModal={() => setIsStudioOpen(true)}
-        onOpenExportModal={() => setIsExportOpen(true)}
-      />
+      <Footer onOpenStudioModal={() => setIsStudioOpen(true)} />
 
       {/* Product Detail Modal */}
       <ProductDetailModal
@@ -199,12 +193,6 @@ export default function App() {
         }}
         onSelectProduct={(product) => setSelectedProduct(product)}
         onOpenAppointmentModal={(serviceNote) => handleOpenAppointmentModal(serviceNote)}
-      />
-
-      {/* Export / GitHub & Vercel Deployment Modal */}
-      <ExportModal
-        isOpen={isExportOpen}
-        onClose={() => setIsExportOpen(false)}
       />
     </div>
   );

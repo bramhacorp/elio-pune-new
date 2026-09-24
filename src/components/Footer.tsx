@@ -1,13 +1,12 @@
 import React from 'react';
-import { Instagram, Facebook, MapPin, Download } from 'lucide-react';
+import { Instagram, Facebook, MapPin } from 'lucide-react';
 import { ElioLogo } from './ElioLogo';
 
 interface FooterProps {
   onOpenStudioModal: () => void;
-  onOpenExportModal?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenStudioModal, onOpenExportModal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenStudioModal }) => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -125,18 +124,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStudioModal, onOpenExportM
 
         {/* Bottom Row Matching Mockup */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#7A726A] font-light">
-          <div className="flex items-center gap-4">
-            <p>© 2026 Elio. All rights reserved.</p>
-            {onOpenExportModal && (
-              <button
-                onClick={onOpenExportModal}
-                className="text-[#B89358] hover:text-white transition-colors cursor-pointer flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider"
-              >
-                <Download className="w-3 h-3" />
-                <span>Export Code (.zip)</span>
-              </button>
-            )}
-          </div>
+          <p>© 2026 Elio. All rights reserved.</p>
 
           <div className="uppercase tracking-[0.28em] text-[10px] md:text-[11px] text-[#8C827A]">
             <span>STYLE</span>

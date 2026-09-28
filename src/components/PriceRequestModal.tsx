@@ -6,12 +6,14 @@ interface PriceRequestModalProps {
   isOpen: boolean;
   onClose: () => void;
   product: ProductItem | null;
+  categoryContext?: 'all' | 'jewellery' | 'clothing';
 }
 
 export const PriceRequestModal: React.FC<PriceRequestModalProps> = ({
   isOpen,
   onClose,
   product,
+  categoryContext = 'all',
 }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -28,15 +30,27 @@ export const PriceRequestModal: React.FC<PriceRequestModalProps> = ({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [referenceId, setReferenceId] = useState('');
 
-  // Update default message when product changes
+  // Update default message when product or categoryContext changes
   useEffect(() => {
     if (product) {
       setMessage(
         `Hello ELIO Concierge, I would like to request the official pricing, availability, and consultation details for "${product.name}".`
       );
-      setIsSubmitted(false);
+    } else if (categoryContext === 'clothing') {
+      setMessage(
+        'Hello ELIO Concierge, I would like to request the bespoke pricing dossier and private consultation details for the Haute Couture & Clothing collection.'
+      );
+    } else if (categoryContext === 'jewellery') {
+      setMessage(
+        'Hello ELIO Concierge, I would like to request the bespoke pricing dossier and private consultation details for the Fine Jewellery collection.'
+      );
+    } else {
+      setMessage(
+        'Hello ELIO Concierge, I would like to request the bespoke pricing dossier and private consultation details for your curated collections.'
+      );
     }
-  }, [product]);
+    setIsSubmitted(false);
+  }, [product, categoryContext, isOpen]);
 
   if (!isOpen) return null;
 
@@ -164,8 +178,8 @@ export const PriceRequestModal: React.FC<PriceRequestModalProps> = ({
               </p>
             </div>
 
-            {/* Product Card Highlight */}
-            {product && (
+            {/* Product Card Highlight or Category Highlight */}
+            {product ? (
               <div className="mb-6 p-3 bg-[#F2EBE0] border border-[#E3D8CA] flex items-center gap-4">
                 <img
                   src={product.image}
@@ -182,6 +196,27 @@ export const PriceRequestModal: React.FC<PriceRequestModalProps> = ({
                   <div className="inline-block mt-0.5 px-2 py-0.5 bg-[#FAF7F2] border border-[#DDD2C2] text-[10px] uppercase tracking-wider text-[#B89358] font-medium">
                     Price on Request
                   </div>
+                </div>
+              </div>
+            ) : (
+              <div className="mb-6 p-3.5 bg-[#F2EBE0] border border-[#E3D8CA] flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <Sparkles className="w-4 h-4 text-[#B89358] shrink-0" />
+                  <div>
+                    <span className="text-[9px] uppercase tracking-widest text-[#8C827A] block">
+                      Atelier Catalog Inquiry
+                    </span>
+                    <span className="font-serif text-sm text-[#1A1918] font-medium">
+                      {categoryContext === 'clothing'
+                        ? 'Haute Couture & Clothing Collection'
+                        : categoryContext === 'jewellery'
+                        ? 'Fine Jewellery & Heirlooms'
+                        : 'Curated Atelier Collections'}
+                    </span>
+                  </div>
+                </div>
+                <div className="px-2 py-0.5 bg-[#FAF7F2] border border-[#DDD2C2] text-[10px] uppercase tracking-wider text-[#B89358] font-medium">
+                  Price on Request
                 </div>
               </div>
             )}

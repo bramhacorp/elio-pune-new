@@ -73,13 +73,8 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search collection..."
-                className="bg-[#F2EBE1] border border-[#DDD3C5] pl-8 pr-3 py-1.5 text-xs text-[#1A1918] placeholder-[#8C827A] focus:outline-none focus:border-[#1A1918] w-40 sm:w-48"
+                className="bg-[#F2EBE1] border border-[#DDD3C5] pl-8 pr-3 py-1.5 text-xs text-[#1A1918] placeholder-[#8C827A] focus:outline-none focus:border-[#1A1918] w-48 sm:w-56"
               />
-            </div>
-
-            {/* Price on Request status badge */}
-            <div className="hidden sm:flex items-center px-3 py-1.5 border border-[#DDD3C5] bg-[#F2EBE1] text-[11px] uppercase tracking-wider text-[#78716A] font-medium">
-              <span>Price on Request</span>
             </div>
 
             {/* Close Button */}
@@ -204,16 +199,13 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
                         </p>
                       </div>
 
-                      <div className="pt-3 border-t border-[#EFE8DE] flex items-center justify-between gap-2">
-                        <span className="text-[11px] uppercase tracking-wider text-[#8C827A] font-medium bg-[#F4ECE3] px-2.5 py-1 border border-[#E8DFD5]">
-                          Price on Request
-                        </span>
+                      <div className="pt-3 border-t border-[#EFE8DE]">
                         <button
                           onClick={() => onSelectProduct(item)}
-                          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-[#1A1918] group-hover:text-[#B89358] font-medium cursor-pointer"
+                          className="w-full py-2.5 px-4 bg-[#1A1918] hover:bg-[#332F2B] text-[#FAF7F2] text-xs uppercase tracking-[0.18em] font-medium flex items-center justify-center gap-2 transition-colors cursor-pointer"
                         >
                           <span>Request Price</span>
-                          <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform text-[#B89358]" />
+                          <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
                         </button>
                       </div>
                     </div>

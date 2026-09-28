@@ -119,7 +119,9 @@ export const LookbookDrawer: React.FC<LookbookDrawerProps> = ({
                       >
                         {item.name}
                       </h4>
-                      <p className="font-serif text-xs text-[#1A1918] mt-0.5">{item.price}</p>
+                      <p className="text-[10px] uppercase tracking-wider text-[#8C827A] mt-0.5">
+                        Price on Request
+                      </p>
                     </div>
 
                     <div className="flex items-center justify-between pt-1">
@@ -128,9 +130,9 @@ export const LookbookDrawer: React.FC<LookbookDrawerProps> = ({
                           onClose();
                           onSelectProduct(item);
                         }}
-                        className="text-[10px] uppercase tracking-wider text-[#B89358] hover:underline cursor-pointer flex items-center gap-1"
+                        className="text-[10px] uppercase tracking-wider text-[#B89358] hover:underline cursor-pointer flex items-center gap-1 font-medium"
                       >
-                        <span>Details</span>
+                        <span>Request Price</span>
                         <ArrowRight className="w-2.5 h-2.5" />
                       </button>
 

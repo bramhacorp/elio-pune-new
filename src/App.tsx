@@ -22,6 +22,7 @@ import { Sparkles, X } from 'lucide-react';
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [inquiryProduct, setInquiryProduct] = useState<ProductItem | null>(null);
+  const [inquiryCategory, setInquiryCategory] = useState<'all' | 'jewellery' | 'clothing'>('all');
   const [isPriceRequestOpen, setIsPriceRequestOpen] = useState(false);
   const [isCollectionOpen, setIsCollectionOpen] = useState(false);
   const [collectionCategory, setCollectionCategory] = useState<'all' | 'jewellery' | 'clothing'>('all');
@@ -112,7 +113,13 @@ export default function App() {
       {/* Main Content Sections */}
       <main className="flex-1">
         {/* Hero Section */}
-        <Hero onExploreCollections={() => handleOpenCollection('all')} />
+        <Hero
+          onExploreCollections={() => {
+            setInquiryProduct(null);
+            setInquiryCategory('all');
+            setIsPriceRequestOpen(true);
+          }}
+        />
 
         {/* Our Products Section */}
         <ProductsSection
@@ -120,20 +127,27 @@ export default function App() {
             setInquiryProduct(product);
             setIsPriceRequestOpen(true);
           }}
-          onExploreAll={() => handleOpenCollection('jewellery')}
+          onExploreAll={() => {
+            setInquiryProduct(null);
+            setInquiryCategory('jewellery');
+            setIsPriceRequestOpen(true);
+          }}
           onToggleLookbook={handleToggleLookbook}
           isSavedInLookbook={isSavedInLookbook}
         />
 
         {/* Our Clothing Section */}
         <ClothingSection
-          onExploreClothing={() => handleOpenCollection('clothing')}
+          onExploreClothing={() => {
+            setInquiryProduct(null);
+            setInquiryCategory('clothing');
+            setIsPriceRequestOpen(true);
+          }}
           onSelectProduct={(product) => {
             setInquiryProduct(product);
             setIsPriceRequestOpen(true);
           }}
         />
-
         {/* Let's Connect Contact Section */}
         <ContactSection
           onOpenStudioModal={() => setIsStudioOpen(true)}
@@ -175,6 +189,7 @@ export default function App() {
         isOpen={isPriceRequestOpen}
         onClose={() => setIsPriceRequestOpen(false)}
         product={inquiryProduct}
+        categoryContext={inquiryCategory}
       />
 
       {/* Private Atelier Booking Modal */}

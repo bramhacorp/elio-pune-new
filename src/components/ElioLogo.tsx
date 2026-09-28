@@ -7,48 +7,99 @@ interface ElioLogoProps {
 }
 
 export const ElioLogo: React.FC<ElioLogoProps> = ({
-  className = 'h-8',
+  className = 'h-8 md:h-10',
   theme = 'dark',
 }) => {
-  const color = theme === 'light' ? '#FFFFFF' : '#161513';
+  const fillColor = theme === 'light' ? '#FFFFFF' : '#161513';
 
   return (
     <div className={`inline-flex items-center select-none ${className}`} aria-label="ELIO">
       <svg
-        viewBox="0 0 460 140"
+        viewBox="0 0 520 170"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-auto h-full"
         style={{ maxHeight: '100%' }}
       >
-        {/* Letter E with open oval curve and horizontal tapering spike */}
-        <g fill={color}>
-          {/* Outer and inner curve of E */}
+        <g fill={fillColor}>
+          {/* Letter Є: High-contrast Didone capital with tapered median spur, heavy top beak, and delicate hairline upward-sweeping tail */}
           <path
-            d="M 125 36 C 112 25 94 18 73 18 C 34 18 8 41 8 70 C 8 99 34 122 73 122 C 95 122 113 115 125 104 C 126 103 125 101 123 100 C 121 99 119 101 117 103 C 106 113 90 119 73 119 C 37 119 13 97 13 70 C 13 43 37 21 73 21 C 90 21 106 27 117 37 C 119 39 121 40 123 39 C 125 38 126 36 125 36 Z"
+            d="
+              M 148 46
+              C 138 31 114 24 84 24
+              C 44 24 16 52 16 85
+              C 16 118 44 146 84 146
+              C 118 146 148 128 156 96
+              C 150 123 120 143.5 84 143.5
+              C 58 143.5 39 122 39 92
+              C 47 92 57 89 74 88
+              C 88 88 98 87 105 93
+              L 105 77
+              C 98 83 88 82 74 82
+              C 57 81 47 78 39 78
+              C 39 48 58 26.5 84 26.5
+              C 108 26.5 128 34 136 44
+              C 138 47 139 52 139 60
+              L 148 46
+              Z
+            "
           />
-          {/* Needle / wedge barb in E */}
+
+          {/* Letter L: Classical Didone L with bold vertical stem, bracketed top serif, ultra-thin hairline horizontal base, and sharp upturned terminal */}
           <path
-            d="M 14 69.5 L 68 64.5 L 68 75.5 Z"
+            d="
+              M 178 28
+              L 214 28
+              L 214 30
+              C 214 34 214 139.8 214 139.8
+              L 266 139.8
+              C 268 139.8 270 135 271 123
+              L 272 142
+              L 178 142
+              L 178 139
+              C 186 138 194 134 194 125
+              L 194 45
+              C 194 36 186 32 178 31
+              Z
+            "
           />
-        </g>
 
-        {/* Letter L */}
-        <g fill={color}>
-          {/* Top serif */}
-          <path d="M 152 24 L 176 24 L 176 27 C 171 28 168 31 168 36 L 168 110 C 168 114 170 116 175 117 L 175 120 L 222 120 C 232 120 238 117 241 108 L 243 108 L 241 122 L 152 122 L 152 119 C 157 118 160 115 160 110 L 160 36 C 160 31 157 28 152 27 Z" />
-        </g>
-
-        {/* Letter I */}
-        <g fill={color}>
-          <path d="M 264 24 L 302 24 L 302 27 C 295 28 292 31 292 36 L 292 110 C 292 115 295 118 302 119 L 302 122 L 264 122 L 264 119 C 271 118 274 115 274 110 L 274 36 C 274 31 271 28 264 27 Z" />
-        </g>
-
-        {/* Letter O */}
-        <g fill={color}>
+          {/* Letter I: Classical Didone column with bold central stem and bilateral bracketed serifs at top and bottom */}
           <path
-            d="M 390 18 C 352 18 328 41 328 70 C 328 99 352 122 390 122 C 428 122 452 99 452 70 C 452 41 428 18 390 18 Z M 390 120 C 358 120 338 98 338 70 C 338 42 358 20 390 20 C 422 20 442 42 442 70 C 442 98 422 120 390 120 Z"
+            d="
+              M 288 28
+              L 330 28
+              L 330 31
+              C 321 32 317 36 317 45
+              L 317 125
+              C 317 134 321 138 330 139
+              L 330 142
+              L 288 142
+              L 288 139
+              C 297 138 301 134 301 125
+              L 301 45
+              C 301 36 297 32 288 31
+              Z
+            "
+          />
+
+          {/* Letter O: Classical Didone O with extreme contrast — bold vertical flanks and ultra-fine hairline top and bottom */}
+          <path
             fillRule="evenodd"
+            d="
+              M 420 24
+              C 459 24 490 51.3 490 85
+              C 490 118.7 459 146 420 146
+              C 381 146 350 118.7 350 85
+              C 350 51.3 381 24 420 24
+              Z
+              M 420 26.2
+              C 446.5 26.2 468 52.5 468 85
+              C 468 117.5 446.5 143.8 420 143.8
+              C 393.5 143.8 372 117.5 372 85
+              C 372 52.5 393.5 26.2 420 26.2
+              Z
+            "
           />
         </g>
       </svg>

@@ -23,8 +23,6 @@ export const LookbookDrawer: React.FC<LookbookDrawerProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const totalAmount = lookbook.reduce((sum, item) => sum + item.priceNum, 0);
-
   const handleInquireAll = () => {
     const names = lookbook.map((i) => i.name).join(', ');
     onClose();
@@ -155,9 +153,11 @@ export const LookbookDrawer: React.FC<LookbookDrawerProps> = ({
         {lookbook.length > 0 && (
           <div className="p-6 border-t border-[#E8DFD5] bg-[#F2EAE0] space-y-3">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-xs uppercase tracking-wider text-[#78716A]">Estimated Value</span>
-              <span className="font-serif text-lg font-medium text-[#1A1918]">
-                ₹ {totalAmount.toLocaleString('en-IN')}
+              <span className="text-xs uppercase tracking-wider text-[#78716A]">
+                {lookbook.length} {lookbook.length === 1 ? 'Curated Piece' : 'Curated Pieces'}
+              </span>
+              <span className="text-[11px] uppercase tracking-wider font-medium text-[#1A1918] bg-[#FAF7F2] px-2.5 py-1 border border-[#DFD5C7]">
+                Price on Request
               </span>
             </div>
 
@@ -166,7 +166,7 @@ export const LookbookDrawer: React.FC<LookbookDrawerProps> = ({
               className="w-full bg-[#1A1918] hover:bg-[#332F2B] text-white py-3 text-xs uppercase tracking-[0.2em] font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5" />
-              <span>Book Salon Fitting for Lookbook</span>
+              <span>Request Lookbook Pricing & Fitting</span>
             </button>
           </div>
         )}

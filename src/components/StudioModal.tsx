@@ -43,7 +43,7 @@ export const StudioModal: React.FC<StudioModalProps> = ({
             The ELIO Studio, Pune
           </h2>
           <p className="text-xs sm:text-sm text-[#55504A] mt-2 font-light max-w-xl">
-            Nestled in the lush lanes of Koregaon Park, our Pune atelier is an intimate sanctuary dedicated to artisanal bridal couture, heirloom fine jewellery, and private bespoke styling.
+            Located at Boulevard Towers in Camp, our Pune atelier is an intimate sanctuary dedicated to artisanal bridal couture, heirloom fine jewellery, and private bespoke styling.
           </p>
         </div>
 
@@ -59,12 +59,12 @@ export const StudioModal: React.FC<StudioModalProps> = ({
                     Atelier Address
                   </h4>
                   <p className="text-xs text-[#524C46] mt-1 leading-relaxed">
-                    Villa 12, Lane 6, Koregaon Park,
+                    F-16, Boulevard Towers, Camp,
                     <br />
-                    Pune, Maharashtra 411001, India
+                    Pune - 411 001, Maharashtra, India
                   </p>
                   <p className="text-[11px] text-[#8C827A] mt-1 italic">
-                    Near North Main Road Enclave
+                    Boulevard Towers, Camp Landmark
                   </p>
                 </div>
               </div>
@@ -95,7 +95,7 @@ export const StudioModal: React.FC<StudioModalProps> = ({
                     Concierge Desk
                   </h4>
                   <p className="text-xs text-[#524C46] mt-1">
-                    +91 98765 43210 · hello@elio.in
+                    +91 92251 77513 · support@eliostore.in
                   </p>
                 </div>
               </div>
@@ -132,10 +132,10 @@ export const StudioModal: React.FC<StudioModalProps> = ({
             <div className="mt-4 pt-4 border-t border-[#DED3C3]">
               <div className="bg-[#E7DFC5]/40 p-3 rounded-xs border border-[#D5C9B5] text-center">
                 <p className="text-[11px] font-serif text-[#1A1918]">
-                  Pune Airport (PNQ): ~15 mins drive
+                  Pune Railway Station: ~7 mins drive
                 </p>
                 <p className="text-[11px] font-serif text-[#1A1918]">
-                  Pune Railway Station: ~12 mins drive
+                  Pune Airport (PNQ): ~20 mins drive
                 </p>
               </div>
             </div>

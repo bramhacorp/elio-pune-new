@@ -15,11 +15,14 @@ import { CollectionModal } from './components/CollectionModal';
 import { AppointmentModal } from './components/AppointmentModal';
 import { StudioModal } from './components/StudioModal';
 import { LookbookDrawer } from './components/LookbookDrawer';
+import { PriceRequestModal } from './components/PriceRequestModal';
 import { ProductItem } from './data/products';
 import { Sparkles, X } from 'lucide-react';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
+  const [inquiryProduct, setInquiryProduct] = useState<ProductItem | null>(null);
+  const [isPriceRequestOpen, setIsPriceRequestOpen] = useState(false);
   const [isCollectionOpen, setIsCollectionOpen] = useState(false);
   const [collectionCategory, setCollectionCategory] = useState<'all' | 'jewellery' | 'clothing'>('all');
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
@@ -113,7 +116,10 @@ export default function App() {
 
         {/* Our Products Section */}
         <ProductsSection
-          onSelectProduct={(product) => setSelectedProduct(product)}
+          onSelectProduct={(product) => {
+            setInquiryProduct(product);
+            setIsPriceRequestOpen(true);
+          }}
           onExploreAll={() => handleOpenCollection('jewellery')}
           onToggleLookbook={handleToggleLookbook}
           isSavedInLookbook={isSavedInLookbook}
@@ -122,7 +128,10 @@ export default function App() {
         {/* Our Clothing Section */}
         <ClothingSection
           onExploreClothing={() => handleOpenCollection('clothing')}
-          onSelectProduct={(product) => setSelectedProduct(product)}
+          onSelectProduct={(product) => {
+            setInquiryProduct(product);
+            setIsPriceRequestOpen(true);
+          }}
         />
 
         {/* Let's Connect Contact Section */}
@@ -150,8 +159,8 @@ export default function App() {
         onClose={() => setIsCollectionOpen(false)}
         initialCategory={collectionCategory}
         onSelectProduct={(product) => {
-          setIsCollectionOpen(false);
-          setSelectedProduct(product);
+          setInquiryProduct(product);
+          setIsPriceRequestOpen(true);
         }}
         onToggleLookbook={handleToggleLookbook}
         isSavedInLookbook={isSavedInLookbook}
@@ -159,6 +168,13 @@ export default function App() {
           setIsCollectionOpen(false);
           handleOpenAppointmentModal(serviceNote);
         }}
+      />
+
+      {/* Price Request & Inquiry Form Modal */}
+      <PriceRequestModal
+        isOpen={isPriceRequestOpen}
+        onClose={() => setIsPriceRequestOpen(false)}
+        product={inquiryProduct}
       />
 
       {/* Private Atelier Booking Modal */}
@@ -191,7 +207,11 @@ export default function App() {
           setLookbook([]);
           showToast('Lookbook cleared');
         }}
-        onSelectProduct={(product) => setSelectedProduct(product)}
+        onSelectProduct={(product) => {
+          setIsLookbookOpen(false);
+          setInquiryProduct(product);
+          setIsPriceRequestOpen(true);
+        }}
         onOpenAppointmentModal={(serviceNote) => handleOpenAppointmentModal(serviceNote)}
       />
     </div>

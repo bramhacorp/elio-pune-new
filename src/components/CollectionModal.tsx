@@ -25,7 +25,6 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
     initialCategory
   );
   const [searchQuery, setSearchQuery] = useState('');
-  const [currency, setCurrency] = useState<'INR' | 'USD'>('INR');
 
   if (!isOpen) return null;
 
@@ -37,14 +36,6 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
       item.subcategory.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCat && matchesQuery;
   });
-
-  const formatPrice = (priceNum: number) => {
-    if (currency === 'USD') {
-      const usdAmount = Math.round(priceNum / 86);
-      return `$ ${usdAmount.toLocaleString('en-US')}`;
-    }
-    return `₹ ${priceNum.toLocaleString('en-IN')}`;
-  };
 
   return (
     <div
@@ -86,28 +77,9 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
               />
             </div>
 
-            {/* Currency toggle */}
-            <div className="flex border border-[#DDD3C5] overflow-hidden text-xs">
-              <button
-                onClick={() => setCurrency('INR')}
-                className={`px-2.5 py-1 transition-colors cursor-pointer ${
-                  currency === 'INR'
-                    ? 'bg-[#1A1918] text-white font-medium'
-                    : 'bg-[#FAF7F2] text-[#666059] hover:bg-[#F2EBE1]'
-                }`}
-              >
-                INR (₹)
-              </button>
-              <button
-                onClick={() => setCurrency('USD')}
-                className={`px-2.5 py-1 transition-colors cursor-pointer ${
-                  currency === 'USD'
-                    ? 'bg-[#1A1918] text-white font-medium'
-                    : 'bg-[#FAF7F2] text-[#666059] hover:bg-[#F2EBE1]'
-                }`}
-              >
-                USD ($)
-              </button>
+            {/* Price on Request status badge */}
+            <div className="hidden sm:flex items-center px-3 py-1.5 border border-[#DDD3C5] bg-[#F2EBE1] text-[11px] uppercase tracking-wider text-[#78716A] font-medium">
+              <span>Price on Request</span>
             </div>
 
             {/* Close Button */}
@@ -232,16 +204,16 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
                         </p>
                       </div>
 
-                      <div className="pt-3 border-t border-[#EFE8DE] flex items-center justify-between">
-                        <span className="font-serif text-base font-normal text-[#1A1918]">
-                          {formatPrice(item.priceNum)}
+                      <div className="pt-3 border-t border-[#EFE8DE] flex items-center justify-between gap-2">
+                        <span className="text-[11px] uppercase tracking-wider text-[#8C827A] font-medium bg-[#F4ECE3] px-2.5 py-1 border border-[#E8DFD5]">
+                          Price on Request
                         </span>
                         <button
                           onClick={() => onSelectProduct(item)}
-                          className="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-[#1A1918] group-hover:text-[#B89358] font-medium cursor-pointer"
+                          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-[#1A1918] group-hover:text-[#B89358] font-medium cursor-pointer"
                         >
-                          <span>Explore</span>
-                          <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+                          <span>Request Price</span>
+                          <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform text-[#B89358]" />
                         </button>
                       </div>
                     </div>

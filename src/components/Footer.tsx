@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, MapPin } from 'lucide-react';
+import { Instagram, Facebook, MapPin, Mail, Phone } from 'lucide-react';
 import { ElioLogo } from './ElioLogo';
 
 interface FooterProps {
@@ -119,6 +119,34 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStudioModal }) => {
               <MapPin className="w-3.5 h-3.5" />
               <span className="tracking-wider">Pune</span>
             </button>
+          </div>
+        </div>
+
+        {/* Contact & Studio Details Bar */}
+        <div className="py-6 border-b border-[#24211E] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#A89F95]">
+          <button
+            onClick={onOpenStudioModal}
+            className="flex items-center gap-2 hover:text-[#FAF7F2] transition-colors text-left cursor-pointer"
+          >
+            <MapPin className="w-3.5 h-3.5 text-[#B89358] shrink-0" />
+            <span>F-16, Boulevard Towers, Camp, Pune - 411 001</span>
+          </button>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
+            <a
+              href="mailto:support@eliostore.in"
+              className="flex items-center gap-2 hover:text-[#FAF7F2] transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#B89358] shrink-0" />
+              <span>support@eliostore.in</span>
+            </a>
+            <a
+              href="tel:+919225177513"
+              className="flex items-center gap-2 hover:text-[#FAF7F2] transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#B89358] shrink-0" />
+              <span>+91 92251 77513</span>
+            </a>
           </div>
         </div>
 

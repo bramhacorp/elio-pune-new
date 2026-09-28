@@ -124,7 +124,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-wider text-[#8C827A]">Location</span>
-                <span className="text-xs font-medium text-[#1A1918]">ELIO Atelier, Koregaon Park, Pune</span>
+                <span className="text-xs font-medium text-[#1A1918]">ELIO Atelier, F-16, Boulevard Towers, Camp, Pune</span>
               </div>
             </div>
 
@@ -278,7 +278,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 92251 77513"
                   className="w-full bg-[#FAF7F2] border border-[#D8CEBE] px-3.5 py-2 text-xs text-[#1A1918] placeholder-[#9C9287] focus:outline-none focus:border-[#1A1918]"
                 />
               </div>
@@ -298,7 +298,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
 
               <div className="pt-2 flex items-center gap-2 text-[11px] text-[#78716A]">
                 <MapPin className="w-3.5 h-3.5 text-[#B89358] shrink-0" />
-                <span>Atelier Location: Koregaon Park, Pune · Valet parking included</span>
+                <span>Atelier Location: F-16, Boulevard Towers, Camp, Pune - 411 001 · Valet parking included</span>
               </div>
 
               <button

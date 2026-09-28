@@ -22,8 +22,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   const isSaved = isSavedInLookbook(product.id);
 
   const handleWhatsAppEnquiry = () => {
-    const text = `Hello ELIO Concierge, I am interested in inquiring about the "${product.name}" (${product.price}). Could you share more details and availability for a private viewing?`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, '_blank');
+    const text = `Hello ELIO Concierge, I am interested in requesting the price and consultation details for "${product.name}". Could you please share availability and bespoke options?`;
+    window.open(`https://wa.me/919225177513?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
@@ -73,10 +73,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 {product.name}
               </h3>
 
-              <div className="text-xl font-serif text-[#1A1918] mb-4">
-                {product.price}
-                <span className="text-xs text-[#8C827A] font-sans ml-2">
-                  (Inclusive of taxes & atelier consultation)
+              <div className="flex flex-wrap items-center gap-2.5 mb-4">
+                <span className="bg-[#F3ECE2] px-3 py-1 border border-[#E5DACB] text-xs uppercase tracking-wider font-sans font-medium text-[#78716A]">
+                  Price on Request
+                </span>
+                <span className="text-xs text-[#8C827A] font-sans">
+                  (Exclusive bespoke quotation upon enquiry)
                 </span>
               </div>
 

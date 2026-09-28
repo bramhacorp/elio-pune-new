@@ -77,15 +77,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm md:text-base font-medium text-[#1A1918] group-hover:text-[#B89358] transition-colors">
-                    Pune, Maharashtra, India
+                    F-16, Boulevard Towers, Camp, Pune - 411 001
                   </h4>
-                  <p className="text-xs text-[#78716A] mt-0.5">Visit by Appointment</p>
+                  <p className="text-xs text-[#78716A] mt-0.5">Visit by Appointment · Pune, India</p>
                 </div>
               </div>
 
               {/* Email */}
               <a
-                href="mailto:hello@elio.in"
+                href="mailto:support@eliostore.in"
                 className="flex items-start gap-4 group cursor-pointer"
               >
                 <div className="w-8 h-8 rounded-full border border-[#D8CEBE] flex items-center justify-center text-[#1A1918] group-hover:border-[#B89358] group-hover:text-[#B89358] transition-colors shrink-0 mt-0.5">
@@ -93,7 +93,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm md:text-base font-medium text-[#1A1918] group-hover:text-[#B89358] transition-colors">
-                    hello@elio.in
+                    support@eliostore.in
                   </h4>
                   <p className="text-xs text-[#78716A] mt-0.5">We'd love to hear from you</p>
                 </div>
@@ -101,7 +101,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
               {/* Phone */}
               <a
-                href="tel:+919876543210"
+                href="tel:+919225177513"
                 className="flex items-start gap-4 group cursor-pointer"
               >
                 <div className="w-8 h-8 rounded-full border border-[#D8CEBE] flex items-center justify-center text-[#1A1918] group-hover:border-[#B89358] group-hover:text-[#B89358] transition-colors shrink-0 mt-0.5">
@@ -109,7 +109,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm md:text-base font-medium text-[#1A1918] group-hover:text-[#B89358] transition-colors">
-                    +91 98765 43210
+                    +91 92251 77513
                   </h4>
                   <p className="text-xs text-[#78716A] mt-0.5">Mon – Sat, 10:00 AM – 7:00 PM</p>
                 </div>
@@ -223,7 +223,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 92251 77513"
                         className="w-full bg-[#FAF7F2] border border-[#D8CEBE] px-3.5 py-2 text-xs text-[#1A1918] placeholder-[#9C9287] focus:outline-none focus:border-[#1A1918] transition-colors"
                       />
                     </div>
